@@ -145,34 +145,34 @@ To explore the code and see actual results, open the [notebook file](main.ipynb)
 <!-- TOC --><a name="mlcv-folder-structure"></a>
 ## MLCV Folder Structure
 ```
-MLCV/                         # Python modules
+MLCV/                         # Python package
+├── config.py                 # Hyperparameters and global config
 ├── dataset/
-│   ├── init.py
 │   ├── base.py               # BaseDataset class
 │   ├── build.py              # DataLoader builders, collate_fn, statistics
 │   ├── prw.py                # PRW dataset class
 │   ├── splits.py             # Train/val split construction
-│   └── transforms.py         # Image transforms (ToTensor, RandomHorizontalFlip)
+│   └── transforms.py         # Image transforms
 ├── model/
-│   ├── mobilnet.py           # EMPTY — placeholder for MobileNet backbone
+│   ├── convnext.py           # ConvNeXt-Small backbone implementation
+│   ├── mobilnet.py           # MobileNet-V3-Large backbone implementation
 │   ├── oim.py                # OIM loss (Online Instance Matching)
 │   ├── resnet.py             # ResNet backbone + Res5Head
 │   └── seqnet.py             # SeqNet model, SeqRoIHeads, NormAwareEmbedding, BBoxRegressor
-├── test/
+├── testing/
 │   ├── eval_search_prw.py    # PRW search evaluation (mAP, top-1)
-│   └── evaluation.py         # evaluate_performance() — full eval pipeline
+│   ├── evaluation.py         # evaluate_performance() — full eval pipeline
+│   └── km.py                 # Kuhn-Munkres algorithm for CBGM
 ├── training/
 │   ├── setup.py              # build_prw_loaders() — constructs all DataLoaders
-│   ├── train.py              # run_experiment() — full training loop with W&B
+│   ├── train.py              # run_experiment() — full training loop
 │   └── train_utils.py        # train_one_epoch(), validate_one_epoch(), helpers
 ├── utils/
-│   ├── init.py
 │   ├── inspection.py         # .mat file inspection helpers
 │   ├── runtime.py            # get_device()
 │   └── seed.py               # fix_random()
-├── visualization/
-│   ├── init.py
-│   ├── knn_viz.py            # KNN visualization (nearest_neighbors, show_neighbors, draw/show overlay)
-│   └── prw_viz.py            # PRW-specific visualization (draw_boxes, render frames, analyze shapes)
-└── config.py                 # Hyperparameter configuration
+└── visualization/
+  ├── comparison.py         # comparison plots and summary visuals
+  ├── knn_viz.py            # KNN visualization utilities
+  └── prw_viz.py            # PRW-specific visualization (draw_boxes, render frames)
 ```
