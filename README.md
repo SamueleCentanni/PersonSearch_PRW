@@ -1,5 +1,5 @@
 <!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
-
+# Table of Content
 - [Person Search](#person-search)
    * [Architectural Choices](#architectural-choices)
       + [My Contributions](#my-contributions)
