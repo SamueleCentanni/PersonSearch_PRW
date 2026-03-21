@@ -83,7 +83,11 @@ To explore the code and see actual results, open the [notebook file](main.ipynb)
 > All results were obtained using an **H100 GPU** on Colab.
 
 ### Results Comparison
+
+<div align="center">
+
 **Agreement Results**
+
 <table>
   <thead>
     <tr>
@@ -107,7 +111,10 @@ To explore the code and see actual results, open the [notebook file](main.ipynb)
   </tbody>
 </table>
 
-**Disagreemnt Results**
+<br>
+
+**Disagreement Results**
+
 <table>
   <thead>
     <tr>
@@ -130,6 +137,8 @@ To explore the code and see actual results, open the [notebook file](main.ipynb)
     </tr>
   </tbody>
 </table>
+
+</div>
 
 ---
 
