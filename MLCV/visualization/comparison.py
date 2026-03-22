@@ -212,6 +212,7 @@ def compare_topk_per_query(
     query_idx: int,
     image_root: str,
     topk: int = 5,
+    scale: float = 0.6,
 ) -> None:
     """
     Side-by-side top-k gallery matches for the same query across models.
@@ -236,10 +237,11 @@ def compare_topk_per_query(
     query_crop = _crop_from_image(image_root, query_img_name, query_roi)
 
     n_cols = topk + 1
+    figsize = (5 * n_cols * scale, 4.5 * n_models * scale)
     fig, axes = plt.subplots(
         n_models,
         n_cols,
-        figsize=(5 * n_cols, 4.5 * n_models),
+        figsize=figsize,
     )
 
     if n_models == 1:
@@ -432,6 +434,7 @@ def show_failure_cases(
     category: str = "all_wrong",
     max_show: int = 5,
     topk: int = 3,
+    plot_scale: float = 0.5,
 ) -> None:
     """
     Visualize queries from a specific category (all_wrong, disagree, etc.).
@@ -450,7 +453,9 @@ def show_failure_cases(
 
     print(f"Showing up to {max_show} queries from '{category}' (total: {len(indices)})")
     for idx in indices[:max_show]:
-        compare_topk_per_query(all_results, idx, image_root, topk=topk)
+        compare_topk_per_query(
+            all_results, idx, image_root, topk=topk, scale=plot_scale
+        )
 
 
 # ──────────────────────────────────────────────────────────────
